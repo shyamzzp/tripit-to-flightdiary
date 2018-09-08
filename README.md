@@ -1,8 +1,18 @@
 Set of scripts to export flights from TripIt and import them into Flightdiary. Quick and dirty.
+## Installation
+* python 2.7
 
+https://www.python.org/download/releases/2.7/
+* python libraries:
+```
+pip install -r requierements.txt
+```
+* Install jq
+
+https://stedolan.github.io/jq/download/
 ## TripIt setup
 
-* Register an application at https://www.tripit.com/developer
+* Register an application at  https://www.tripit.com/developer
 * Get API Key and Secret
 * Save them to a file named `creds.json`
 
@@ -13,17 +23,6 @@ Set of scripts to export flights from TripIt and import them into Flightdiary. Q
 }
 ```
 
-* Run `get_token.py`
-* Click on the `/authorize` URL and follow the instructions
-* **You will land at a "Page Not Found", that's normal**
-* Copy the URL, which looks like `https://www.tripit.com/oauth/foo?...` back into the terminal
-* Put the tokens from the last line in `creds.json`
-
-```json
-    "OAUTH_TOKEN": "*** oauth_token ***",
-    "OAUTH_TOKEN_SECRET": "*** oauth_token_secret ***"
-```
-
 ## Flightdiary setup
 
 Just put username and password in `creds.json`
@@ -32,6 +31,14 @@ Just put username and password in `creds.json`
     "FD_USER": "*** USER ***",
     "FD_PASSWORD": "*** PASSWORD ***"
 ```
+https://my.flightradar24.com/
+## Getting access token
+* Run `get_token.py`
+* A link gonna open in the browser to grant the app access to your account 
+* **You will land at a "Page Not Found", that's normal**
+* Copy the URL, which looks like `http://www.foo.com/?oauth_token=` back into the terminal
+* The `creds.json` data gonna get updated with the access token data
+
 
 ## Syncing
 
