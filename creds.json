@@ -1,4 +1,6 @@
 {
     "CLIENT_KEY": "*** API Key ***",
-    "CLIENT_SECRET": "*** API Secret ***"
+    "CLIENT_SECRET": "*** API Secret ***",
+    "FD_USER": "*** USER ***",
+    "FD_PASSWORD": "*** PASSWORD ***"
 }
