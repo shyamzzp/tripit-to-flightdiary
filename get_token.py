@@ -1,5 +1,7 @@
 from requests_oauthlib import OAuth1Session
 import json
+import webbrowser
+import json
 
 with open('creds.json') as f:
     creds = json.load(f)
@@ -12,7 +14,9 @@ fetch_response = oauth.fetch_request_token(request_token_url)
 print fetch_response
 base_authorization_url = 'https://www.tripit.com/oauth/authorize'
 authorization_url = oauth.authorization_url(base_authorization_url)
-print authorization_url + '&oauth_callback=foo'
+print authorization_url + '&oauth_callback=http://foo.com'
+webbrowser.open(authorization_url + '&oauth_callback=http://foo.com')
+
 oauth_response = oauth.parse_authorization_response(raw_input())
 print oauth_response
 resource_owner_key = fetch_response.get('oauth_token')
@@ -22,4 +26,11 @@ oauth = OAuth1Session(client_key, client_secret=client_secret,
     resource_owner_key=resource_owner_key,
     resource_owner_secret=resource_owner_secret, verifier='foo')
 oauth_tokens = oauth.fetch_access_token(access_token_url)
+creds['OAUTH_TOKEN_SECRET']=oauth_tokens['oauth_token_secret']
+creds['OAUTH_TOKEN']=oauth_tokens['oauth_token']
 print oauth_tokens
+
+with open('creds.json', 'w') as fp:
+    json.dump(creds, fp)
+
+print "DONE"
