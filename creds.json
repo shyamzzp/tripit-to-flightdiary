@@ -1,6 +1,8 @@
 {
-    "CLIENT_KEY": "*** API Key ***",
-    "CLIENT_SECRET": "*** API Secret ***",
+    "CLIENT_KEY": "1dfe7b9a9110883db81377906019923325466ca0",
+    "CLIENT_SECRET": "db39288d031df9b796f94ed55c28f1a65b5cbb4a",
     "FD_USER": "*** USER ***",
-    "FD_PASSWORD": "*** PASSWORD ***"
+    "FD_PASSWORD": "*** PASSWORD ***",
+    "OAUTH_TOKEN_SECRET": "6cfce864984b494b8a2cba4b32ec0286",
+    "OAUTH_TOKEN": "7b2d3f003c3d484082581b45515d6a04"
 }

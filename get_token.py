@@ -11,14 +11,14 @@ client_secret = creds['CLIENT_SECRET']
 request_token_url = 'https://api.tripit.com/oauth/request_token'
 oauth = OAuth1Session(client_key, client_secret=client_secret)
 fetch_response = oauth.fetch_request_token(request_token_url)
-print fetch_response
+print (fetch_response)
 base_authorization_url = 'https://www.tripit.com/oauth/authorize'
 authorization_url = oauth.authorization_url(base_authorization_url)
-print authorization_url + '&oauth_callback=http://foo.com'
-webbrowser.open(authorization_url + '&oauth_callback=http://foo.com')
+print (authorization_url + '&oauth_callback=http://shyamzzp.github.io')
+webbrowser.open(authorization_url + '&oauth_callback=http://shyamzzp.github.io')
 
-oauth_response = oauth.parse_authorization_response(raw_input())
-print oauth_response
+oauth_response = oauth.parse_authorization_response(input())
+print (oauth_response)
 resource_owner_key = fetch_response.get('oauth_token')
 resource_owner_secret = fetch_response.get('oauth_token_secret')
 access_token_url = 'https://api.tripit.com/oauth/access_token'
@@ -28,9 +28,9 @@ oauth = OAuth1Session(client_key, client_secret=client_secret,
 oauth_tokens = oauth.fetch_access_token(access_token_url)
 creds['OAUTH_TOKEN_SECRET']=oauth_tokens['oauth_token_secret']
 creds['OAUTH_TOKEN']=oauth_tokens['oauth_token']
-print oauth_tokens
+print (oauth_tokens)
 
 with open('creds.json', 'w') as fp:
     json.dump(creds, fp)
 
-print "DONE"
+print ("DONE")

@@ -20,7 +20,7 @@ def get_flights():
     flights = []
 
     last = -1
-    soup = bs4.BeautifulSoup(r.text, "html5lib")
+    soup = bs4.BeautifulSoup(r.text, "html.parser")
     for row in soup.find_all(lambda tag: tag.has_attr('data-row-number')):
         flights.append(Flight(
             date=row.find(class_="flight-date").text.strip(),
@@ -62,7 +62,7 @@ def add_flight(data):
 
 def main():
     for f in get_flights():
-        print f.date, f.from_, f.to, f.flight
+        print( f.date, f.from_, f.to, f.flight)
 
 if __name__ == '__main__':
     main()
